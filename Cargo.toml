@@ -1,5 +1,5 @@
 [package]
-name = "rust-nbt"
+name = "rust_nbt"
 version = "0.0.1"
 authors = ["Rutger Broekhoff <rutgerbroekhoff3@gmail.com>"]
 
