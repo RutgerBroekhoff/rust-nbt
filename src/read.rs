@@ -1,23 +1,22 @@
+use file::NBTFile;
+use NBTTag;
 use nom;
 use nom::{
-    be_i8,
     be_i16,
-    le_i16,
-    be_u16,
-    le_u16,
     be_i32,
-    le_i32,
     be_i64,
-    le_i64,
+    be_i8,
+    be_u16,
     Endianness,
     ErrorKind,
     IResult,
+    le_i16,
+    le_i32,
+    le_i64,
+    le_u16,
 };
-
-use std::str;
 use std::collections::HashMap;
-use NBTTag;
-use file::NBTFile;
+use std::str;
 
 macro_rules! f32 ( ($i:expr, $e:expr) => ( {if nom::Endianness::Big == $e { nom::be_f32($i) } else { nom::le_f32($i) } } ););
 macro_rules! f64 ( ($i:expr, $e:expr) => ( {if nom::Endianness::Big == $e { nom::be_f64($i) } else { nom::le_f64($i) } } ););
@@ -138,19 +137,19 @@ named!(pub read_nbt_file<&[u8], Option<NBTFile>>,
 
 fn read_tag(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
     match tag_type {
-        1  => read_tag_byte(input),
-        2  => read_tag_short(input),
-        3  => read_tag_int(input),
-        4  => read_tag_long(input),
-        5  => read_tag_float(input),
-        6  => read_tag_double(input),
-        7  => read_tag_byte_array(input),
-        8  => read_tag_string(input),
-        9  => read_tag_list(input),
+        1 => read_tag_byte(input),
+        2 => read_tag_short(input),
+        3 => read_tag_int(input),
+        4 => read_tag_long(input),
+        5 => read_tag_float(input),
+        6 => read_tag_double(input),
+        7 => read_tag_byte_array(input),
+        8 => read_tag_string(input),
+        9 => read_tag_list(input),
         10 => read_tag_compound(input),
         11 => read_tag_int_array(input),
         12 => read_tag_long_array(input),
-        _  => Err(nom::Err::Error(error_position!(input, ErrorKind::Custom(0)))),
+        _ => Err(nom::Err::Error(error_position!(input, ErrorKind::Custom(0)))),
     }
 }
 

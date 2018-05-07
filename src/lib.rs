@@ -26,10 +26,10 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
  */
- 
+
+extern crate byteorder;
 #[macro_use]
 extern crate nom;
-extern crate byteorder;
 
 use std::collections::HashMap;
 use std::error::Error;

@@ -2,9 +2,9 @@ use file::NBTFile;
 use NBTTag;
 use read::read_nbt_file;
 use read::read_tag_name;
-use write::get_tag_id;
-use std::collections::HashMap;
 use read::tuple_vector_to_hash_map;
+use std::collections::HashMap;
+use write::get_tag_id;
 
 #[test]
 fn check_read_name() {
@@ -21,7 +21,7 @@ fn check_tuple_vec_to_hashmap() {
     let mut expected = HashMap::new();
 
     expected.insert("Hello World!".to_owned(), NBTTag::TagString("Test".to_owned()));
-    expected.insert("Bye World!".to_owned(),   NBTTag::TagInt(3));
+    expected.insert("Bye World!".to_owned(), NBTTag::TagInt(3));
 
     assert_eq!(tuple_vector_to_hash_map(input), expected);
 }
@@ -36,10 +36,10 @@ fn check_nbt_file() {
     compound_contents.insert("Hello".to_owned(), NBTTag::TagString("Hello".to_owned()));
 
     assert_eq!(read_nbt_file(input.as_slice()), Ok((&b""[..],
-    Some(NBTFile {
-        root_name: "e".to_owned(),
-        root: NBTTag::TagCompound(compound_contents)
-    }))));
+                                                    Some(NBTFile {
+                                                        root_name: "e".to_owned(),
+                                                        root: NBTTag::TagCompound(compound_contents),
+                                                    }))));
 }
 
 #[test]
@@ -47,6 +47,6 @@ fn check_tag_matcher() {
     let input = NBTTag::TagString("Hello World!".to_owned());
     let result = get_tag_id(&input);
     let expected = Some(8);
-    
+
     assert_eq!(result, expected);
 }
