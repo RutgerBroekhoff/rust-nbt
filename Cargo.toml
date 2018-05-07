@@ -1,7 +1,7 @@
 [package]
-name = "rusttest"
-version = "0.1.0"
-authors = ["Rutger Broekhoff <g.n.broekhoff@gmail.com>"]
+name = "rust-nbt"
+version = "0.0.1"
+authors = ["Rutger Broekhoff <rutgerbroekhoff3@gmail.com>"]
 
 [dependencies]
 nom = "4.0.0-beta3"
