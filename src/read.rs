@@ -1,0 +1,165 @@
+use nom;
+use nom::{
+    be_i8,
+    be_i16,
+    le_i16,
+    be_u16,
+    le_u16,
+    be_i32,
+    le_i32,
+    be_i64,
+    le_i64,
+    Endianness,
+    ErrorKind,
+    IResult,
+};
+
+use std::str;
+use std::collections::HashMap;
+use NBTTag;
+use file::NBTFile;
+
+macro_rules! f32 ( ($i:expr, $e:expr) => ( {if nom::Endianness::Big == $e { nom::be_f32($i) } else { nom::le_f32($i) } } ););
+macro_rules! f64 ( ($i:expr, $e:expr) => ( {if nom::Endianness::Big == $e { nom::be_f64($i) } else { nom::le_f64($i) } } ););
+
+named!(pub read_tag_name<&[u8], &str>,
+    do_parse!(
+        len:  u16!(nom::Endianness::Big) >>
+        name: take!(len)                 >>
+        (str::from_utf8(name).unwrap())
+    )
+);
+
+named!(read_tag_byte<&[u8], NBTTag>,
+    do_parse!(
+        val: be_i8 >>
+        (NBTTag::TagByte(val))
+    )
+);
+
+named!(read_tag_short<&[u8], NBTTag>,
+    do_parse!(
+        val: i16!(nom::Endianness::Big) >>
+        (NBTTag::TagShort(val))
+    )
+);
+
+named!(read_tag_int<&[u8], NBTTag>,
+    do_parse!(
+        val: i32!(nom::Endianness::Big) >>
+        (NBTTag::TagInt(val))
+    )
+);
+
+named!(read_tag_long<&[u8], NBTTag>,
+    do_parse!(
+        val: i64!(nom::Endianness::Big) >>
+        (NBTTag::TagLong(val))
+    )
+);
+
+named!(read_tag_float<&[u8], NBTTag>,
+    do_parse!(
+        val: f32!(nom::Endianness::Big) >>
+        (NBTTag::TagFloat(val))
+    )
+);
+
+named!(read_tag_double<&[u8], NBTTag>,
+    do_parse!(
+        val: f64!(nom::Endianness::Big) >>
+        (NBTTag::TagDouble(val))
+    )
+);
+
+named!(read_tag_byte_array<&[u8], NBTTag>,
+    do_parse!(
+        len: i32!(nom::Endianness::Big)        >>
+        val: many_m_n!(1, len as usize, be_i8) >>
+        (NBTTag::TagByteArray(val))
+    )
+);
+
+named!(read_tag_string<&[u8], NBTTag>,
+    do_parse!(
+        len: u16!(nom::Endianness::Big) >>
+        val: take!(len)                 >>
+        (NBTTag::TagString(str::from_utf8(val).unwrap().to_owned()))
+    )
+);
+
+named!(read_tag_list<&[u8], NBTTag>,
+    do_parse!(
+        elems_type: take!(1) >>
+        len: i32!(nom::Endianness::Big) >>
+        elems: many_m_n!(1, len as usize, apply!(read_tag_known, elems_type[0])) >>
+        (NBTTag::TagList(elems))
+    )
+);
+
+named!(read_tag_compound<&[u8], NBTTag>,
+    do_parse!(
+        elems: many_till!(read_tag, tag!([0x00])) >>
+        (NBTTag::TagCompound(tuple_vector_to_hashmap(elems.0)))
+    )
+);
+
+named!(read_tag_int_array<&[u8], NBTTag>,
+    do_parse!(
+        len: i32!(nom::Endianness::Big)         >>
+        val: many_m_n!(1, len as usize, be_i32) >>
+        (NBTTag::TagIntArray(val))
+    )
+);
+
+named!(read_tag_long_array<&[u8], NBTTag>,
+    do_parse!(
+        len: i32!(nom::Endianness::Big)         >>
+        val: many_m_n!(1, len as usize, be_i64) >>
+        (NBTTag::TagLongArray(val))
+    )
+);
+
+named!(read_tag<&[u8], (&str, NBTTag)>,
+    do_parse!(
+        tag_type: take!(1)                          >>
+        name: read_tag_name                         >>
+        output: apply!(read_tag_known, tag_type[0]) >>
+        (name, output)
+    )
+);
+
+named!(pub read_nbt_file<&[u8], Option<NBTFile>>,
+    do_parse!(
+        root: read_tag >>
+        (NBTFile::from_tuple(root))
+    )
+);
+
+fn read_tag_known(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
+    match tag_type {
+        1  => read_tag_byte(input),
+        2  => read_tag_short(input),
+        3  => read_tag_int(input),
+        4  => read_tag_long(input),
+        5  => read_tag_float(input),
+        6  => read_tag_double(input),
+        7  => read_tag_byte_array(input),
+        8  => read_tag_string(input),
+        9  => read_tag_list(input),
+        10 => read_tag_compound(input),
+        11 => read_tag_int_array(input),
+        12 => read_tag_long_array(input),
+        _  => Err(nom::Err::Error(error_position!(input, ErrorKind::Custom(0)))),
+    }
+}
+
+pub fn tuple_vector_to_hashmap(input: Vec<(&str, NBTTag)>) -> HashMap<String, NBTTag> {
+    let mut map = HashMap::new();
+
+    for item in input.iter() {
+        map.insert(item.0.clone().to_owned(), item.1.clone());
+    }
+
+    return map;
+}
