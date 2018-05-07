@@ -4,7 +4,7 @@ use read::read_nbt_file;
 use read::read_tag_name;
 use write::get_tag_id;
 use std::collections::HashMap;
-use read::tuple_vector_to_hashmap;
+use read::tuple_vector_to_hash_map;
 
 #[test]
 fn check_read_name() {
@@ -23,7 +23,7 @@ fn check_tuple_vec_to_hashmap() {
     expected.insert("Hello World!".to_owned(), NBTTag::TagString("Test".to_owned()));
     expected.insert("Bye World!".to_owned(),   NBTTag::TagInt(3));
 
-    assert_eq!(tuple_vector_to_hashmap(input), expected);
+    assert_eq!(tuple_vector_to_hash_map(input), expected);
 }
 
 #[test]

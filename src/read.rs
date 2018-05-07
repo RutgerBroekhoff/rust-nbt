@@ -136,7 +136,7 @@ named!(pub read_nbt_file<&[u8], Option<NBTFile>>,
     )
 );
 
-fn read_tag_known(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
+fn read_tag(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
     match tag_type {
         1  => read_tag_byte(input),
         2  => read_tag_short(input),
@@ -154,7 +154,7 @@ fn read_tag_known(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
     }
 }
 
-pub fn tuple_vector_to_hashmap(input: Vec<(&str, NBTTag)>) -> HashMap<String, NBTTag> {
+pub fn tuple_vector_to_hash_map(input: Vec<(&str, NBTTag)>) -> HashMap<String, NBTTag> {
     let mut map = HashMap::new();
 
     for item in input.iter() {
