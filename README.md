@@ -7,5 +7,5 @@ Installation
 Add the following dependency to the dependencies section in your project's `Cargo.toml`
 ```toml
 [dependencies]
-rust-nbt = { git = "https://github.com/rutgerbroekhoff/rust-nbt" }
+rust_nbt = { git = "https://github.com/RutgerBroekhoff/rust-nbt" }
 ```
