@@ -13,17 +13,6 @@ pub struct NBTFile {
 }
 
 impl NBTFile {
-    pub fn from_tuple(tuple: (&str, NBTTag)) -> Option<NBTFile> {
-        if let &NBTTag::TagCompound(_) = &tuple.1 {
-            Some(NBTFile {
-                root_name: tuple.0.clone().to_owned(),
-                root: tuple.1,
-            })
-        } else {
-            None
-        }
-    }
-
     pub fn from_path(path: &str) -> Result<NBTFile, String> {
         let path = Path::new(path);
         let display = path.display();
