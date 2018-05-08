@@ -99,7 +99,7 @@ named!(read_tag_list<&[u8], NBTTag>,
 named!(read_tag_compound<&[u8], NBTTag>,
     do_parse!(
         elems: many_till!(read_tag, tag!([0x00])) >>
-        (NBTTag::TagCompound(tuple_vector_to_hashmap(elems.0)))
+        (NBTTag::TagCompound(tuple_vector_to_hash_map(elems.0)))
     )
 );
 
