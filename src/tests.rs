@@ -1,13 +1,7 @@
 use file::NBTFile;
 use NBTTag;
 use read::read_nbt_file;
-use read::read_tag_name;
 use std::collections::HashMap;
-
-#[test]
-fn check_read_name() {
-    assert_eq!(read_tag_name(vec![0x00, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F].as_slice()), Ok((&b""[..], "Hello")))
-}
 
 #[test]
 fn check_nbt_file() {

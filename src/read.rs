@@ -21,7 +21,7 @@ use std::str;
 macro_rules! f32 ( ($i:expr, $e:expr) => ( {if nom::Endianness::Big == $e { nom::be_f32($i) } else { nom::le_f32($i) } } ););
 macro_rules! f64 ( ($i:expr, $e:expr) => ( {if nom::Endianness::Big == $e { nom::be_f64($i) } else { nom::le_f64($i) } } ););
 
-named!(pub read_tag_name<&[u8], &str>,
+named!(read_tag_name<&[u8], &str>,
     do_parse!(
         len:  u16!(nom::Endianness::Big) >>
         name: take!(len)                 >>
@@ -188,4 +188,9 @@ fn test_tuple_vec_to_hash_map() {
     expected.insert("Bye World!".to_owned(), NBTTag::TagInt(3));
 
     assert_eq!(tuple_vector_to_hash_map(input), expected);
+}
+
+#[test]
+fn check_read_name() {
+    assert_eq!(read_tag_name(vec![0x00, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F].as_slice()), Ok((&b""[..], "Hello")))
 }
