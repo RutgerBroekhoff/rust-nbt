@@ -8,7 +8,6 @@ addons:
     - libdw-dev
     - binutils-dev
 rust:
-- nightly
 - beta
 - stable
 before_script:
@@ -28,3 +27,4 @@ env:
   global:
   - TRAVIS_CARGO_NIGHTY_FEATURE=nightly
   - secure: RPKS4Yt32SBCgGImwVXZuhcqiOwVTWOxAkobynx6aJDwfWOeC0WhFDrYLjW4ubgVcOst3fmFmitX3BAuvPjkPMEJAz8iFlaU/YDRObPCAGFMwlz4G2mQ0oruUuXaQlDnsRRb2MGHJ3Y+WJ11PnXEvBkL8qbRKzQdeNtF9klBYRKf4TA2lGCBYo1cAsS7wPj8XcbhMc3NiYWKtYUtr/5B8Zqpp+2QoVBN+UtsRNndvfpQS3GbveZQ5O0OhuwNwxYPf7NbVyYVhVxJli3iNeB3HvlZwaE737xNdq/o0Bkp52iqKAdEj/SAaABViVVxvlFPbwy8/hp5UV07maNOIwC85CCFo8F6+eWHaz5Fpvujbj2htNRSOh0QhCKz3yzweBC/Dhl3JXrwsK7vIQr9ldayJhNdxDq0cOLbesOPg8crg+avCbZfLZw4KXRe3doCzVFwcXpPEYZNUSh72HQCrjxwCwLSxoaMCbfbB5/66yzYCoyTe2oIszydOc9wDRc59bQsZI79KTWsHrKU/zs9CBbCIdhXYORmvlVDl36gwtOH+xCEUP17tKIHHNW4zrk0102cP63ejKEC9pM56C/AoP1ZsL2yxBxrG5zsNmJefUNqz1jBnKzOY923dfUDvwjgIsD1eB2m1cWg0Hzdj9CexUAFAln7Ys/JlIMToxoPlmIPOGY=
+  - GH_TOKEN=[secure]
