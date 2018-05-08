@@ -2,7 +2,6 @@ use file::NBTFile;
 use NBTTag;
 use read::read_nbt_file;
 use read::read_tag_name;
-use read::tuple_vector_to_hash_map;
 use std::collections::HashMap;
 use write::get_tag_id;
 
