@@ -135,7 +135,8 @@ named!(pub read_nbt_file<&[u8], Option<NBTFile>>,
     )
 );
 
-fn read_tag(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
+// Reads tag of which the type is already known
+fn read_tag_known(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
     match tag_type {
         1 => read_tag_byte(input),
         2 => read_tag_short(input),
