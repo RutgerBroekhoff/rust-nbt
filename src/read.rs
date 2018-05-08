@@ -131,7 +131,7 @@ named!(read_tag<&[u8], (&str, NBTTag)>,
 named!(pub read_nbt_file<&[u8], Option<NBTFile>>,
     do_parse!(
         root: read_tag >>
-        (NBTFile::from_tuple(root))
+        (file_from_tuple(root))
     )
 );
 
@@ -151,6 +151,17 @@ fn read_tag_known(input: &[u8], tag_type: u8) -> IResult<&[u8], NBTTag> {
         11 => read_tag_int_array(input),
         12 => read_tag_long_array(input),
         _ => Err(nom::Err::Error(error_position!(input, ErrorKind::Custom(0)))),
+    }
+}
+
+fn file_from_tuple(tuple: (&str, NBTTag)) -> Option<NBTFile> {
+    if let &NBTTag::TagCompound(_) = &tuple.1 {
+        Some(NBTFile {
+            root_name: tuple.0.clone().to_owned(),
+            root: tuple.1,
+        })
+    } else {
+        None
     }
 }
 
