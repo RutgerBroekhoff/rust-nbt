@@ -3,11 +3,6 @@ extern crate nom;
 extern crate byteorder;
 
 use std::collections::HashMap;
-use std::error::Error;
-use std::fs::File;
-use std::io::prelude::*;
-use std::path::Path;
-use std::str;
 use std::vec::Vec;
 
 pub mod file;
