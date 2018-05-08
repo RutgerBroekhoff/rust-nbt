@@ -106,7 +106,7 @@ named!(read_tag_compound<&[u8], NBTTag>,
 named!(read_tag_int_array<&[u8], NBTTag>,
     do_parse!(
         len: i32!(nom::Endianness::Big)         >>
-        val: many_m_n!(1, len as usize, i32!(nom::Endiannness::Big)) >>
+        val: many_m_n!(1, len as usize, i32!(nom::Endianness::Big)) >>
         (NBTTag::TagIntArray(val))
     )
 );

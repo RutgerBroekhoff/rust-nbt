@@ -3,7 +3,6 @@ use NBTTag;
 use read::read_nbt_file;
 use read::read_tag_name;
 use std::collections::HashMap;
-use write::get_tag_id;
 
 #[test]
 fn check_read_name() {
