@@ -12,21 +12,6 @@ fn check_read_name() {
 }
 
 #[test]
-fn check_tuple_vec_to_hashmap() {
-    let input = vec![
-        ("Hello World!", NBTTag::TagString("Test".to_owned())),
-        ("Bye World!", NBTTag::TagInt(3))
-    ];
-
-    let mut expected = HashMap::new();
-
-    expected.insert("Hello World!".to_owned(), NBTTag::TagString("Test".to_owned()));
-    expected.insert("Bye World!".to_owned(), NBTTag::TagInt(3));
-
-    assert_eq!(tuple_vector_to_hash_map(input), expected);
-}
-
-#[test]
 fn check_nbt_file() {
     let input = vec![
         0x0A, 0x00, 0x01, 0x65, 0x08, 0x00, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x00, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6f, 0x00
