@@ -25,12 +25,3 @@ fn check_nbt_file() {
                                                         root: NBTTag::TagCompound(compound_contents),
                                                     }))));
 }
-
-#[test]
-fn check_tag_matcher() {
-    let input = NBTTag::TagString("Hello World!".to_owned());
-    let result = get_tag_id(&input);
-    let expected = Some(8);
-
-    assert_eq!(result, expected);
-}

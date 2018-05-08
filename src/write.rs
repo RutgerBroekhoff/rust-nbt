@@ -229,7 +229,7 @@ pub fn write_tag(input: &NBTTag, write_id: bool, write_name: bool, name: Option<
     Ok(output)
 }
 
-pub fn get_tag_id(tag: &NBTTag) -> Option<u8> {
+fn get_tag_id(tag: &NBTTag) -> Option<u8> {
     match tag {
         &NBTTag::TagByte(_) => Some(1),
         &NBTTag::TagShort(_) => Some(2),
@@ -245,4 +245,13 @@ pub fn get_tag_id(tag: &NBTTag) -> Option<u8> {
         &NBTTag::TagLongArray(_) => Some(12),
         _ => None,
     }
+}
+
+#[test]
+fn check_tag_matcher() {
+    let input = NBTTag::TagString("Hello World!".to_owned());
+    let result = get_tag_id(&input);
+    let expected = Some(8);
+
+    assert_eq!(result, expected);
 }
