@@ -10,7 +10,7 @@ use std::path::Path;
 use std::str;
 use std::vec::Vec;
 
-mod file;
+pub mod file;
 mod read;
 mod write;
 
