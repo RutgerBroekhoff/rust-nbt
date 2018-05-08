@@ -3,7 +3,7 @@ languages: rust
 addons:
   apt:
     packages:
-    - libcurl-4-openssl-dev
+    - libcurl4-openssl-dev
     - libelf-dev
     - libdw-dev
     - binutils-dev
