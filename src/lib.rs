@@ -9,9 +9,6 @@ pub mod file;
 mod read;
 mod write;
 
-#[cfg(test)]
-mod tests;
-
 #[derive(Debug, PartialEq, Clone)]
 pub enum NBTTag {
     TagEnd,
