@@ -174,3 +174,18 @@ pub fn tuple_vector_to_hash_map(input: Vec<(&str, NBTTag)>) -> HashMap<String, N
 
     return map;
 }
+
+#[test]
+fn test_tuple_vec_to_hash_map() {
+    let input = vec![
+        ("Hello World!", NBTTag::TagString("Test".to_owned())),
+        ("Bye World!", NBTTag::TagInt(3))
+    ];
+
+    let mut expected = HashMap::new();
+
+    expected.insert("Hello World!".to_owned(), NBTTag::TagString("Test".to_owned()));
+    expected.insert("Bye World!".to_owned(), NBTTag::TagInt(3));
+
+    assert_eq!(tuple_vector_to_hash_map(input), expected);
+}
