@@ -165,7 +165,7 @@ fn file_from_tuple(tuple: (&str, NBTTag)) -> Option<NBTFile> {
     }
 }
 
-pub fn tuple_vector_to_hash_map(input: Vec<(&str, NBTTag)>) -> HashMap<String, NBTTag> {
+fn tuple_vector_to_hash_map(input: Vec<(&str, NBTTag)>) -> HashMap<String, NBTTag> {
     let mut map = HashMap::new();
 
     for item in input.iter() {
