@@ -10,11 +10,10 @@
     <title>traits.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1629,7 +1628,7 @@
   <span class="attribute">#[<span class="ident">inline</span>]</span>
   <span class="kw">fn</span> <span class="ident">slice_index</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">count</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cnt</span> <span class="op">=</span> <span class="number">0</span>;
-    <span class="kw">for</span> (<span class="ident">index</span>, <span class="kw">_</span>) <span class="kw">in</span> <span class="self">self</span>.<span class="ident">char_indices</span>() {
+    <span class="kw">for</span> (<span class="ident">index</span>, _) <span class="kw">in</span> <span class="self">self</span>.<span class="ident">char_indices</span>() {
       <span class="kw">if</span> <span class="ident">cnt</span> <span class="op">==</span> <span class="ident">count</span> {
         <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">index</span>);
       }
@@ -1799,8 +1798,8 @@
   <span class="kw">where</span>
     <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="self">Self</span>::<span class="ident">Item</span>) <span class="op">-&gt;</span> <span class="ident">bool</span>,
   {
-    <span class="kw">match</span> <span class="self">self</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
-      <span class="prelude-val">Some</span>((<span class="ident">i</span>, <span class="kw">_</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="kw-2">&amp;</span><span class="self">self</span>[<span class="ident">i</span>..], <span class="kw-2">&amp;</span><span class="self">self</span>[..<span class="ident">i</span>])),
+    <span class="kw">match</span> <span class="self">self</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
+      <span class="prelude-val">Some</span>((<span class="ident">i</span>, _)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="kw-2">&amp;</span><span class="self">self</span>[<span class="ident">i</span>..], <span class="kw-2">&amp;</span><span class="self">self</span>[..<span class="ident">i</span>])),
       <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="ident">Needed</span>::<span class="ident">Size</span>(<span class="number">1</span>))),
     }
   }
@@ -1809,9 +1808,9 @@
   <span class="kw">where</span>
     <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="self">Self</span>::<span class="ident">Item</span>) <span class="op">-&gt;</span> <span class="ident">bool</span>,
   {
-    <span class="kw">match</span> <span class="self">self</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
-      <span class="prelude-val">Some</span>((<span class="number">0</span>, <span class="kw">_</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="ident">Context</span>::<span class="ident">Code</span>(<span class="self">self</span>, <span class="ident">e</span>))),
-      <span class="prelude-val">Some</span>((<span class="ident">i</span>, <span class="kw">_</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="kw-2">&amp;</span><span class="self">self</span>[<span class="ident">i</span>..], <span class="kw-2">&amp;</span><span class="self">self</span>[..<span class="ident">i</span>])),
+    <span class="kw">match</span> <span class="self">self</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
+      <span class="prelude-val">Some</span>((<span class="number">0</span>, _)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="ident">Context</span>::<span class="ident">Code</span>(<span class="self">self</span>, <span class="ident">e</span>))),
+      <span class="prelude-val">Some</span>((<span class="ident">i</span>, _)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="kw-2">&amp;</span><span class="self">self</span>[<span class="ident">i</span>..], <span class="kw-2">&amp;</span><span class="self">self</span>[..<span class="ident">i</span>])),
       <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="ident">Needed</span>::<span class="ident">Size</span>(<span class="number">1</span>))),
     }
   }
@@ -1824,8 +1823,8 @@
   <span class="kw">where</span>
     <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="self">Self</span>::<span class="ident">Item</span>) <span class="op">-&gt;</span> <span class="ident">bool</span>,
   {
-    <span class="kw">match</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
-      <span class="prelude-val">Some</span>((<span class="ident">i</span>, <span class="kw">_</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[<span class="ident">i</span>..]), <span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[..<span class="ident">i</span>]))),
+    <span class="kw">match</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
+      <span class="prelude-val">Some</span>((<span class="ident">i</span>, _)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[<span class="ident">i</span>..]), <span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[..<span class="ident">i</span>]))),
       <span class="prelude-val">None</span> <span class="op">=&gt;</span> {
         <span class="kw">let</span> (<span class="ident">i</span>, <span class="ident">o</span>) <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">take_split</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">len</span>());
         <span class="prelude-val">Ok</span>((<span class="ident">CompleteStr</span>(<span class="ident">i</span>), <span class="ident">CompleteStr</span>(<span class="ident">o</span>)))
@@ -1837,9 +1836,9 @@
   <span class="kw">where</span>
     <span class="ident">P</span>: <span class="ident">Fn</span>(<span class="self">Self</span>::<span class="ident">Item</span>) <span class="op">-&gt;</span> <span class="ident">bool</span>,
   {
-    <span class="kw">match</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
-      <span class="prelude-val">Some</span>((<span class="number">0</span>, <span class="kw">_</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="ident">Context</span>::<span class="ident">Code</span>(<span class="ident">CompleteStr</span>(<span class="self">self</span>.<span class="number">0</span>), <span class="ident">e</span>))),
-      <span class="prelude-val">Some</span>((<span class="ident">i</span>, <span class="kw">_</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[<span class="ident">i</span>..]), <span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[..<span class="ident">i</span>]))),
+    <span class="kw">match</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">char_indices</span>().<span class="ident">find</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">predicate</span>(<span class="ident">c</span>)) {
+      <span class="prelude-val">Some</span>((<span class="number">0</span>, _)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="ident">Context</span>::<span class="ident">Code</span>(<span class="ident">CompleteStr</span>(<span class="self">self</span>.<span class="number">0</span>), <span class="ident">e</span>))),
+      <span class="prelude-val">Some</span>((<span class="ident">i</span>, _)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[<span class="ident">i</span>..]), <span class="ident">CompleteStr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>[..<span class="ident">i</span>]))),
       <span class="prelude-val">None</span> <span class="op">=&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">len</span>() <span class="op">==</span> <span class="number">0</span> {
           <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="ident">Context</span>::<span class="ident">Code</span>(<span class="ident">CompleteStr</span>(<span class="self">self</span>.<span class="number">0</span>), <span class="ident">e</span>)))
@@ -1881,7 +1880,7 @@
     <span class="kw">let</span> <span class="ident">pos</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">iter</span>().<span class="ident">zip</span>(<span class="ident">t</span>.<span class="ident">iter</span>()).<span class="ident">position</span>(<span class="op">|</span>(<span class="ident">a</span>, <span class="ident">b</span>)<span class="op">|</span> <span class="ident">a</span> <span class="op">!=</span> <span class="ident">b</span>);
 
     <span class="kw">match</span> <span class="ident">pos</span> {
-      <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">CompareResult</span>::<span class="ident">Error</span>,
+      <span class="prelude-val">Some</span>(_) <span class="op">=&gt;</span> <span class="ident">CompareResult</span>::<span class="ident">Error</span>,
       <span class="prelude-val">None</span> <span class="op">=&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">len</span>() <span class="op">&gt;=</span> <span class="ident">t</span>.<span class="ident">len</span>() {
           <span class="ident">CompareResult</span>::<span class="prelude-val">Ok</span>
@@ -1919,7 +1918,7 @@
     <span class="kw">if</span> <span class="op">!</span><span class="ident">reduced</span>.<span class="ident">iter</span>().<span class="ident">zip</span>(<span class="ident">other</span>).<span class="ident">all</span>(<span class="op">|</span>(<span class="ident">a</span>, <span class="ident">b</span>)<span class="op">|</span> <span class="kw">match</span> (<span class="kw-2">*</span><span class="ident">a</span>, <span class="kw-2">*</span><span class="ident">b</span>) {
       (<span class="number">0</span>...<span class="number">64</span>, <span class="number">0</span>...<span class="number">64</span>) <span class="op">|</span> (<span class="number">91</span>...<span class="number">96</span>, <span class="number">91</span>...<span class="number">96</span>) <span class="op">|</span> (<span class="number">123</span>...<span class="number">255</span>, <span class="number">123</span>...<span class="number">255</span>) <span class="op">=&gt;</span> <span class="ident">a</span> <span class="op">==</span> <span class="ident">b</span>,
       (<span class="number">65</span>...<span class="number">90</span>, <span class="number">65</span>...<span class="number">90</span>) <span class="op">|</span> (<span class="number">97</span>...<span class="number">122</span>, <span class="number">97</span>...<span class="number">122</span>) <span class="op">|</span> (<span class="number">65</span>...<span class="number">90</span>, <span class="number">97</span>...<span class="number">122</span>) <span class="op">|</span> (<span class="number">97</span>...<span class="number">122</span>, <span class="number">65</span>...<span class="number">90</span>) <span class="op">=&gt;</span> <span class="kw-2">*</span><span class="ident">a</span> <span class="op">|</span> <span class="number">0b00_10_00_00</span> <span class="op">==</span> <span class="kw-2">*</span><span class="ident">b</span> <span class="op">|</span> <span class="number">0b00_10_00_00</span>,
-      <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
+      _ <span class="op">=&gt;</span> <span class="bool-val">false</span>,
     }) {
       <span class="ident">CompareResult</span>::<span class="ident">Error</span>
     } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">m</span> <span class="op">&lt;</span> <span class="ident">blen</span> {
@@ -1947,7 +1946,7 @@
     <span class="kw">let</span> <span class="ident">pos</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">chars</span>().<span class="ident">zip</span>(<span class="ident">t</span>.<span class="ident">chars</span>()).<span class="ident">position</span>(<span class="op">|</span>(<span class="ident">a</span>, <span class="ident">b</span>)<span class="op">|</span> <span class="ident">a</span> <span class="op">!=</span> <span class="ident">b</span>);
 
     <span class="kw">match</span> <span class="ident">pos</span> {
-      <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">CompareResult</span>::<span class="ident">Error</span>,
+      <span class="prelude-val">Some</span>(_) <span class="op">=&gt;</span> <span class="ident">CompareResult</span>::<span class="ident">Error</span>,
       <span class="prelude-val">None</span> <span class="op">=&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">len</span>() <span class="op">&gt;=</span> <span class="ident">t</span>.<span class="ident">len</span>() {
           <span class="ident">CompareResult</span>::<span class="prelude-val">Ok</span>
@@ -1968,7 +1967,7 @@
       .<span class="ident">position</span>(<span class="op">|</span>(<span class="ident">a</span>, <span class="ident">b</span>)<span class="op">|</span> <span class="ident">a</span>.<span class="ident">to_lowercase</span>().<span class="ident">zip</span>(<span class="ident">b</span>.<span class="ident">to_lowercase</span>()).<span class="ident">any</span>(<span class="op">|</span>(<span class="ident">a</span>, <span class="ident">b</span>)<span class="op">|</span> <span class="ident">a</span> <span class="op">!=</span> <span class="ident">b</span>));
 
     <span class="kw">match</span> <span class="ident">pos</span> {
-      <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">CompareResult</span>::<span class="ident">Error</span>,
+      <span class="prelude-val">Some</span>(_) <span class="op">=&gt;</span> <span class="ident">CompareResult</span>::<span class="ident">Error</span>,
       <span class="prelude-val">None</span> <span class="op">=&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">len</span>() <span class="op">&gt;=</span> <span class="ident">t</span>.<span class="ident">len</span>() {
           <span class="ident">CompareResult</span>::<span class="prelude-val">Ok</span>
@@ -1981,7 +1980,7 @@
 
   <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;alloc&quot;</span>))]</span>
   <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
-  <span class="kw">fn</span> <span class="ident">compare_no_case</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">CompareResult</span> {
+  <span class="kw">fn</span> <span class="ident">compare_no_case</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, _: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">CompareResult</span> {
     <span class="macro">unimplemented</span><span class="macro">!</span>()
   }
 }

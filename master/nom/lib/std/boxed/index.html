@@ -10,11 +10,10 @@
     <title>nom::lib::std::boxed - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -55,11 +54,13 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>boxed</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>boxed</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/lib.rs.html#165' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>A pointer type for heap allocation.</p>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/lib.rs.html#163' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>A pointer type for heap allocation.</p>
 <p><code>Box&lt;T&gt;</code>, casually referred to as a 'box', provides the simplest form of
 heap allocation in Rust. Boxes provide ownership for this allocation, and
 drop their contents when they go out of scope.</p>
@@ -114,14 +115,6 @@ big <code>Cons</code> needs to be.</p>
                                   title='struct nom::lib::std::boxed::IntermediateBox'>IntermediateBox</a></td>
                            <td class='docblock-short'>
                                [<div class='stab unstable'>Experimental</div>] <p><code>IntermediateBox</code> represents uninitialized backing storage for <code>Box</code>.</p>
-
-                           </td>
-                       </tr>
-                       <tr class='unstable module-item'>
-                           <td><a class="struct" href="struct.PinBox.html"
-                                  title='struct nom::lib::std::boxed::PinBox'>PinBox</a></td>
-                           <td class='docblock-short'>
-                               [<div class='stab unstable'>Experimental</div>] <p>A pinned, heap allocated reference.</p>
 
                            </td>
                        </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>

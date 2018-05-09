@@ -10,11 +10,10 @@
     <title>nom::lib::std::convert - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -34,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module convert</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a></p><script>window.sidebarCurrent = {name: 'convert', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module convert</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a></p><script>window.sidebarCurrent = {name: 'convert', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -55,11 +54,13 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>convert</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>convert</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/lib.rs.html#166' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Traits for conversions between types.</p>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/lib.rs.html#152' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Traits for conversions between types.</p>
 <p>The traits in this module provide a general way to talk about conversions
 from one type to another. They follow the standard Rust conventions of
 <code>as</code>/<code>into</code>/<code>from</code>.</p>
@@ -86,7 +87,17 @@ blanket implementation in the standard library.</p>
 <code>into</code> themselves and <code>from</code> themselves</li>
 </ul>
 <p>See each trait for usage examples.</p>
-</div><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+</div><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.Infallible.html"
+                                  title='enum nom::lib::std::convert::Infallible'>Infallible</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>A type used as the error type for implementations of fallible conversion
+traits in cases where conversions cannot actually fail.</p>
+
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="trait" href="trait.AsMut.html"

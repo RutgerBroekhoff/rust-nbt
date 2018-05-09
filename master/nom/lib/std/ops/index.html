@@ -10,11 +10,10 @@
     <title>nom::lib::std::ops - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -55,11 +54,13 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>ops</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>ops</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/lib.rs.html#162' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Overloadable operators.</p>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/lib.rs.html#148' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Overloadable operators.</p>
 <p>Implementing these traits allows you to overload certain operators.</p>
 <p>Some of these traits are imported by the prelude, so they are available in
 every Rust program. Only operators backed by traits can be overloaded. For
@@ -204,14 +205,6 @@ closures as arguments.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.RangeInclusive.html"
-                                  title='struct nom::lib::std::ops::RangeInclusive'>RangeInclusive</a></td>
-                           <td class='docblock-short'>
-                                <p>An range bounded inclusively below and above (<code>start..=end</code>).</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.RangeTo.html"
                                   title='struct nom::lib::std::ops::RangeTo'>RangeTo</a></td>
                            <td class='docblock-short'>
@@ -219,23 +212,23 @@ closures as arguments.</p>
 
                            </td>
                        </tr>
-                       <tr class=' module-item'>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.RangeInclusive.html"
+                                  title='struct nom::lib::std::ops::RangeInclusive'>RangeInclusive</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>An range bounded inclusively below and above (<code>start..=end</code>).</p>
+
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
                            <td><a class="struct" href="struct.RangeToInclusive.html"
                                   title='struct nom::lib::std::ops::RangeToInclusive'>RangeToInclusive</a></td>
                            <td class='docblock-short'>
-                                <p>A range only bounded inclusively above (<code>..=end</code>).</p>
+                               [<div class='stab unstable'>Experimental</div>] <p>A range only bounded inclusively above (<code>..=end</code>).</p>
 
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
-                       <tr class=' module-item'>
-                           <td><a class="enum" href="enum.Bound.html"
-                                  title='enum nom::lib::std::ops::Bound'>Bound</a></td>
-                           <td class='docblock-short'>
-                                <p>An endpoint of a range of keys.</p>
-
-                           </td>
-                       </tr>
                        <tr class='unstable module-item'>
                            <td><a class="enum" href="enum.GeneratorState.html"
                                   title='enum nom::lib::std::ops::GeneratorState'>GeneratorState</a></td>
@@ -543,15 +536,6 @@ the address returned by the <code>pointer</code> method of this trait.</p>
                                   title='trait nom::lib::std::ops::Placer'>Placer</a></td>
                            <td class='docblock-short'>
                                [<div class='stab unstable'>Experimental</div>] <p>Interface to implementations of  <code>PLACE &lt;- EXPR</code>.</p>
-
-                           </td>
-                       </tr>
-                       <tr class='unstable module-item'>
-                           <td><a class="trait" href="trait.RangeBounds.html"
-                                  title='trait nom::lib::std::ops::RangeBounds'>RangeBounds</a></td>
-                           <td class='docblock-short'>
-                               [<div class='stab unstable'>Experimental</div>] <p><code>RangeBounds</code> is implemented by Rust's built-in range types, produced
-by range syntax like <code>..</code>, <code>a..</code>, <code>..b</code> or <code>c..d</code>.</p>
 
                            </td>
                        </tr>

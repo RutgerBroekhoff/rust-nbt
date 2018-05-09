@@ -10,11 +10,10 @@
     <title>nom::lib::std::hash::BuildHasher - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -55,14 +54,16 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>hash</a>::<wbr><a class="trait" href=''>BuildHasher</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.7.0'>1.7.0</span><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>hash</a>::<wbr><a class="trait" href=''>BuildHasher</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.7.0'>1.7.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/hash/mod.rs.html#439-462' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait BuildHasher {
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/hash/mod.rs.html#438-461' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait BuildHasher {
     type <a href='#associatedtype.Hasher' class="type">Hasher</a>: <a class="trait" href="../../../../nom/lib/std/hash/trait.Hasher.html" title="trait nom::lib::std::hash::Hasher">Hasher</a>;
     fn <a href='#tymethod.build_hasher' class='fnname'>build_hasher</a>(&amp;self) -&gt; Self::<a class="type" href="../../../../nom/lib/std/hash/trait.BuildHasher.html#associatedtype.Hasher" title="type nom::lib::std::hash::BuildHasher::Hasher">Hasher</a>;
-}</pre></div><div class='docblock'><p>A trait for creating instances of <a href="trait.Hasher.html"><code>Hasher</code></a>.</p>
+}</pre><div class='docblock'><p>A trait for creating instances of <a href="trait.Hasher.html"><code>Hasher</code></a>.</p>
 <p>A <code>BuildHasher</code> is typically used (e.g. by <a href="../../std/collections/struct.HashMap.html"><code>HashMap</code></a>) to create
 <a href="trait.Hasher.html"><code>Hasher</code></a>s for each key such that they are hashed independently of one
 another, since <a href="trait.Hasher.html"><code>Hasher</code></a>s contain state.</p>
@@ -108,9 +109,9 @@ is fed into each hasher, the same output will also be generated.</p>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><table class='table-display'><tbody><tr><td><code>impl BuildHasher for <a class="struct" href="../../../../nom/lib/std/collections/hash_map/struct.RandomState.html" title="struct nom::lib::std::collections::hash_map::RandomState">RandomState</a><span class="where fmt-newline">  type <a href='#associatedtype.Hasher' class="type">Hasher</a> = <a class="struct" href="../../../../nom/lib/std/collections/hash_map/struct.DefaultHasher.html" title="struct nom::lib::std::collections::hash_map::DefaultHasher">DefaultHasher</a>;</span></code><td><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/collections/hash/map.rs.html#2675-2682' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-<li><table class='table-display'><tbody><tr><td><code>impl&lt;H&gt; BuildHasher for <a class="struct" href="../../../../nom/lib/std/hash/struct.BuildHasherDefault.html" title="struct nom::lib::std::hash::BuildHasherDefault">BuildHasherDefault</a>&lt;H&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="../../../../nom/lib/std/prelude/v1/v1/trait.Default.html" title="trait nom::lib::std::prelude::v1::v1::Default">Default</a> + <a class="trait" href="../../../../nom/lib/std/hash/trait.Hasher.html" title="trait nom::lib::std::hash::Hasher">Hasher</a>,&nbsp;</span><span class="where fmt-newline">  type <a href='#associatedtype.Hasher' class="type">Hasher</a> = H;</span></code><td><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/hash/mod.rs.html#523-529' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-</ul><script type="text/javascript">window.inlined_types=new Set([]);</script><script type="text/javascript" async
+    <li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/collections/hash/map.rs.html#2553-2560' title='goto source code'>[src]</a></div><code>impl BuildHasher for <a class="struct" href="../../../../nom/lib/std/collections/hash_map/struct.RandomState.html" title="struct nom::lib::std::collections::hash_map::RandomState">RandomState</a><span class="where fmt-newline">  type <a href='#associatedtype.Hasher' class="type">Hasher</a> = <a class="struct" href="../../../../nom/lib/std/collections/hash_map/struct.DefaultHasher.html" title="struct nom::lib::std::collections::hash_map::DefaultHasher">DefaultHasher</a>;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/hash/mod.rs.html#522-528' title='goto source code'>[src]</a></div><code>impl&lt;H&gt; BuildHasher for <a class="struct" href="../../../../nom/lib/std/hash/struct.BuildHasherDefault.html" title="struct nom::lib::std::hash::BuildHasherDefault">BuildHasherDefault</a>&lt;H&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="../../../../nom/lib/std/prelude/v1/v1/trait.Default.html" title="trait nom::lib::std::prelude::v1::v1::Default">Default</a> + <a class="trait" href="../../../../nom/lib/std/hash/trait.Hasher.html" title="trait nom::lib::std::hash::Hasher">Hasher</a>,&nbsp;</span><span class="where fmt-newline">  type <a href='#associatedtype.Hasher' class="type">Hasher</a> = H;</span></code></li>
+</ul><script type="text/javascript" async
                          src="../../../../implementors/core/hash/trait.BuildHasher.js">
                  </script></section>
     <section id='search' class="content hidden"></section>

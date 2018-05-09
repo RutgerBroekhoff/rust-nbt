@@ -10,11 +10,10 @@
     <title>str.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1139,7 +1138,7 @@
     <span class="kw">const</span> <span class="ident">TAG</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Hello World!&quot;</span>;
 
     <span class="kw">match</span> <span class="macro">tag_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">TAG</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> {
         <span class="macro">panic</span><span class="macro">!</span>(
           <span class="string">&quot;Parser `tag_s` didn&#39;t require more input when it should have. \
@@ -1156,7 +1155,7 @@
     <span class="kw">const</span> <span class="ident">TAG</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Random&quot;</span>; <span class="comment">// TAG must be closer than INPUT.</span>
 
     <span class="kw">match</span> <span class="macro">tag_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">TAG</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> {
         <span class="macro">panic</span><span class="macro">!</span>(
           <span class="string">&quot;Parser `tag_s` didn&#39;t fail when it should have. Got `{:?}`.`&quot;</span>,
@@ -1230,7 +1229,7 @@
     <span class="kw">const</span> <span class="ident">INPUT</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βèƒôřèÂßÇá&quot;</span>;
 
     <span class="kw">match</span> <span class="macro">take_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="number">13</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `take_s` didn&#39;t require more input when it should have. \
          Got `{:?}`.&quot;</span>,
@@ -1444,7 +1443,7 @@
       <span class="macro">is_not_s</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">AVOID</span>)
     }
     <span class="kw">match</span> <span class="ident">test</span>(<span class="ident">INPUT</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `is_not_s` didn&#39;t fail when it should have. Got `{:?}`.&quot;</span>,
         <span class="ident">other</span>
@@ -1491,7 +1490,7 @@
     <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βèƒôřèÂßÇ&quot;</span>;
 
     <span class="kw">match</span> <span class="macro">take_until_and_consume_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `take_until_and_consume_s` didn&#39;t require more input when it should have. \
          Got `{:?}`.&quot;</span>,
@@ -1506,7 +1505,7 @@
     <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βèƒôřèÂßÇ&quot;</span>;
 
     <span class="kw">match</span> <span class="macro">take_until_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `take_until_s` didn&#39;t require more input when it should have. \
          Got `{:?}`.&quot;</span>,
@@ -1556,7 +1555,7 @@
       <span class="macro">take_while1_s</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">while1_s</span>)
     }
     <span class="kw">match</span> <span class="ident">test</span>(<span class="ident">INPUT</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `take_while1_s` didn&#39;t fail when it should have. \
          Got `{:?}`.&quot;</span>,
@@ -1573,7 +1572,7 @@
       <span class="macro">is_a_s</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">MATCH</span>)
     }
     <span class="kw">match</span> <span class="ident">test</span>(<span class="ident">INPUT</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Error</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `is_a_s` didn&#39;t fail when it should have. Got `{:?}`.&quot;</span>,
         <span class="ident">other</span>
@@ -1587,7 +1586,7 @@
     <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Ráñδô₥&quot;</span>;
 
     <span class="kw">match</span> <span class="macro">take_until_and_consume_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `take_until_and_consume_s` didn&#39;t fail when it should have. \
          Got `{:?}`.&quot;</span>,
@@ -1602,7 +1601,7 @@
     <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Ráñδô₥&quot;</span>;
 
     <span class="kw">match</span> <span class="macro">take_until_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
+      <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">Incomplete</span>(_)) <span class="op">=&gt;</span> (),
       <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(
         <span class="string">&quot;Parser `take_until_and_consume_s` didn&#39;t fail when it should have. \
          Got `{:?}`.&quot;</span>,
@@ -1629,7 +1628,7 @@
         <span class="macro">tag_s</span><span class="macro">!</span>(<span class="string">&quot;.&quot;</span>)
       );
 
-    <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">dot</span>(<span class="string">&quot;點&quot;</span>);
+    <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">dot</span>(<span class="string">&quot;點&quot;</span>);
   }
 
   <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;alloc&quot;</span>)]</span>
