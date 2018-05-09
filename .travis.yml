@@ -1,38 +1,34 @@
 sudo: required
 language: rust
-
 cache: cargo
-
 addons:
   apt:
     packages:
-      - libcurl4-openssl-dev
-      - libelf-dev
-      - libdw-dev
-      - binutils-dev
-      - cmake
+    - libcurl4-openssl-dev
+    - libelf-dev
+    - libdw-dev
+    - binutils-dev
+    - cmake
     sources:
-      - kalakris-cmake
-
+    - kalakris-cmake
 rust:
-  - beta
-  - stable
-  - 1.0.0
-
+- beta
+- stable
+- 1.0.0
 before_script:
-  - export PATH=$HOME/.cargo/bin:$PATH
-  - cargo install cargo-update || echo "cargo-update already installed"
-  - cargo install cargo-travis || echo "cargo-travis already installed"
-  - cargo install-update -a
-
-# the main build
+- export PATH=$HOME/.cargo/bin:$PATH
+- cargo install cargo-update || echo "cargo-update already installed"
+- cargo install cargo-travis || echo "cargo-travis already installed"
+- cargo install-update -a
 script:
-  - |
-      cargo build &&
-      cargo test &&
-      cargo bench &&
-      cargo doc
-
+- |
+  cargo build &&
+  cargo test &&
+  cargo bench &&
+  cargo doc
 after_success:
-  - cargo coveralls
-  - cargo doc-upload
+- cargo coveralls
+- cargo doc-upload
+env:
+  global:
+    secure: d+xfwPK5xukH40EUEtfIqg0fE63qanqaLeBlzYktzxljxFXopjQ5nKNdY41XyE8lxtNLtYKUhLuNF0l2LeTUXfzxiYBveU7sMzBHW+23MzPCChOiTKHeJ65jZ2RG9oGsf6fNX22VVTAyvsyFsxsn7SNedfplLn6OZuj4Ae15GX4bSWSBqgq60xuCBg4bCcxDLCjxWLyrzXG4cgz7xFJZDR51FPLbsD8kEGyyJ05rXTnEXHXIgUmv5Vee9TAjgv6mE3o4ShBG8uMYjQrcpQPKqmDTRBpdbrCFS4ixTrarMXd+ShkGCNLjE88jS38rerNXGqF8jpjUj8SwryWmiAHgkYZuzn8VQMlP5JSwwhZSFBd69RlXiDX9tz9eDkx26aFtbcp/c1o67nZW/eIyKLyehle9qlhX9+BXW9AZ7+m3YunJwh9hVNQlHmXSLq17T6qlH3hiY9RTTNfo5MJiswHtIF3TtCFMvMzoMmTQ1M5JEnRGlLYnyp8ps61tzcKw+OzRz4qKLZqxCXY83OaaEG7SFRm5fEV/GyaDtMcF4D7fgEmBvk5Y8NeHt1SX4blfPTr9PPBtfVBYTLdnZDdX+qnl1GeeHtQHH3cMppv2J0efEr8i7zWB4P0o3jhwEaqas1+0jmoj/YgYnIDwuf20xbIHS5ok6VoEBVH5xOn75w56c08=
