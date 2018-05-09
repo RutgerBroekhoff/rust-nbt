@@ -10,10 +10,11 @@
     <title>nom::lib::std::collections - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>collections</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>collections</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/lib.rs.html#475' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Collection types.</p>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/lib.rs.html#478' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Collection types.</p>
 <p>Rust's standard collection library provides efficient implementations of the
 most common general purpose programming data structures. By using the
 standard implementations, it should be possible for two libraries to
@@ -268,7 +267,7 @@ efficiently as possible.</p>
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">VecDeque</span>;
 
 <span class="kw">let</span> <span class="ident">vec</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];
-<span class="kw">let</span> <span class="ident">buf</span>: <span class="ident">VecDeque</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">vec</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>();</pre>
+<span class="kw">let</span> <span class="ident">buf</span>: <span class="ident">VecDeque</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">vec</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>();</pre>
 <p>Iterators also provide a series of <em>adapter</em> methods for performing common
 threads to sequences. Among the adapters are functional favorites like <code>map</code>,
 <code>fold</code>, <code>skip</code> and <code>take</code>. Of particular interest to collections is the
@@ -466,14 +465,6 @@ not update the value of the key. For example:</p>
                                 <p>A double-ended queue implemented with a growable ring buffer.</p>
 
                            </td>
-                       </tr>
-                       <tr class='unstable module-item'>
-                           <td><a class="mod" href="range/index.html"
-                                  title='mod nom::lib::std::collections::range'>range</a></td>
-                           <td class='docblock-short'>
-                               [<div class='stab unstable'>Experimental</div>] <p>Range syntax.</p>
-
-                           </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -538,6 +529,14 @@ not update the value of the key. For example:</p>
                                   title='enum nom::lib::std::collections::Bound'>Bound</a></td>
                            <td class='docblock-short'>
                                 <p>An endpoint of a range of keys.</p>
+
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.CollectionAllocErr.html"
+                                  title='enum nom::lib::std::collections::CollectionAllocErr'>CollectionAllocErr</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Augments <code>AllocErr</code> with a CapacityOverflow variant.</p>
 
                            </td>
                        </tr></table></section>

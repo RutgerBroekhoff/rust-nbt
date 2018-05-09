@@ -10,10 +10,11 @@
     <title>nom::lib::std::boxed::HEAP - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -33,7 +34,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>boxed</a></p><script>window.sidebarCurrent = {name: 'HEAP', ty: 'constant', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <div class="sidebar-elems"><p class='location'><a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>boxed</a></p><script>window.sidebarCurrent = {name: 'HEAP', ty: 'constant', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Constant <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>boxed</a>::<wbr><a class="constant" href=''>HEAP</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version '></span><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Constant <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>boxed</a>::<wbr><a class="constant" href=''>HEAP</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version '></span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/boxed.rs.html#94' title='goto source code'>[src]</a></span></h1>
-<pre class='rust const'>pub const HEAP: <a class="struct" href="../../../../nom/lib/std/boxed/struct.ExchangeHeapSingleton.html" title="struct nom::lib::std::boxed::ExchangeHeapSingleton">ExchangeHeapSingleton</a><code> = </code><code>ExchangeHeapSingleton{_force_singleton: (),}</code></pre><div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>box_heap</code>)</summary><p>may be renamed; uncertain about custom allocator design</p>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/boxed.rs.html#95' title='goto source code'>[src]</a></span></h1><pre class='rust const'>pub const HEAP: <a class="struct" href="../../../../nom/lib/std/boxed/struct.ExchangeHeapSingleton.html" title="struct nom::lib::std::boxed::ExchangeHeapSingleton">ExchangeHeapSingleton</a><code> = </code><code>ExchangeHeapSingleton{_force_singleton: (),}</code></pre><div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>box_heap</code>)</summary><p>may be renamed; uncertain about custom allocator design</p>
 </details></div></div><div class='docblock'><p>A value that represents the heap. This is the default place that the <code>box</code>
 keyword allocates into when no place is supplied.</p>
 <p>The following two examples are equivalent:</p>

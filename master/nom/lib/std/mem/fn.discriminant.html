@@ -10,10 +10,11 @@
     <title>nom::lib::std::mem::discriminant - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -33,7 +34,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>mem</a></p><script>window.sidebarCurrent = {name: 'discriminant', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <div class="sidebar-elems"><p class='location'><a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>mem</a></p><script>window.sidebarCurrent = {name: 'discriminant', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Function <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>mem</a>::<wbr><a class="fn" href=''>discriminant</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.21.0'>1.21.0</span><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Function <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a href='index.html'>mem</a>::<wbr><a class="fn" href=''>discriminant</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.21.0'>1.21.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/mem.rs.html#905-909' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn discriminant&lt;T&gt;(v: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="struct" href="../../../../nom/lib/std/mem/struct.Discriminant.html" title="struct nom::lib::std::mem::Discriminant">Discriminant</a>&lt;T&gt;</pre><div class='docblock'><p>Returns a value uniquely identifying the enum variant in <code>v</code>.</p>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/mem.rs.html#905-909' title='goto source code'>[src]</a></span></h1><pre class='rust fn'>pub fn discriminant&lt;T&gt;(v: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="struct" href="../../../../nom/lib/std/mem/struct.Discriminant.html" title="struct nom::lib::std::mem::Discriminant">Discriminant</a>&lt;T&gt;</pre><div class='docblock'><p>Returns a value uniquely identifying the enum variant in <code>v</code>.</p>
 <p>If <code>T</code> is not an enum, calling this function will not result in undefined behavior, but the
 return value is unspecified.</p>
 <h1 id="stability" class="section-header"><a href="#stability">Stability</a></h1>

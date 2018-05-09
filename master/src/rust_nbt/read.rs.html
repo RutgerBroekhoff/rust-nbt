@@ -10,10 +10,11 @@
     <title>read.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -419,12 +420,12 @@
         <span class="number">10</span> <span class="op">=&gt;</span> <span class="ident">read_tag_compound</span>(<span class="ident">input</span>),
         <span class="number">11</span> <span class="op">=&gt;</span> <span class="ident">read_tag_int_array</span>(<span class="ident">input</span>),
         <span class="number">12</span> <span class="op">=&gt;</span> <span class="ident">read_tag_long_array</span>(<span class="ident">input</span>),
-        _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">nom</span>::<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">ErrorKind</span>::<span class="ident">Custom</span>(<span class="number">0</span>)))),
+        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">nom</span>::<span class="prelude-val">Err</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">ErrorKind</span>::<span class="ident">Custom</span>(<span class="number">0</span>)))),
     }
 }
 
 <span class="kw">fn</span> <span class="ident">file_from_tuple</span>(<span class="ident">tuple</span>: (<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">NBTTag</span>)) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NBTFile</span><span class="op">&gt;</span> {
-    <span class="kw">if</span> <span class="kw">let</span> <span class="kw-2">&amp;</span><span class="ident">NBTTag</span>::<span class="ident">TagCompound</span>(_) <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">tuple</span>.<span class="number">1</span> {
+    <span class="kw">if</span> <span class="kw">let</span> <span class="kw-2">&amp;</span><span class="ident">NBTTag</span>::<span class="ident">TagCompound</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">tuple</span>.<span class="number">1</span> {
         <span class="prelude-val">Some</span>(<span class="ident">NBTFile</span> {
             <span class="ident">root_name</span>: <span class="ident">tuple</span>.<span class="number">0</span>.<span class="ident">clone</span>().<span class="ident">to_owned</span>(),
             <span class="ident">root</span>: <span class="ident">tuple</span>.<span class="number">1</span>,

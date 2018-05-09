@@ -10,10 +10,11 @@
     <title>nom::lib::std::iter - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>iter</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>nom</a>::<wbr><a href='../../index.html'>lib</a>::<wbr><a href='../index.html'>std</a>::<wbr><a class="mod" href=''>iter</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/lib.rs.html#163' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Composable external iteration.</p>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/lib.rs.html#179' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Composable external iteration.</p>
 <p>If you've found yourself with a collection of some kind, and needed to
 perform an operation on the elements of said collection, you'll quickly run
 into 'iterators'. Iterators are heavily used in idiomatic Rust code, so
@@ -468,6 +467,24 @@ element.</p>
                            </td>
                        </tr>
                        <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.Flatten.html"
+                                  title='struct nom::lib::std::iter::Flatten'>Flatten</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>An iterator that flattens one level of nesting in an iterator of things
+that can be turned into iterators.</p>
+
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.RepeatWith.html"
+                                  title='struct nom::lib::std::iter::RepeatWith'>RepeatWith</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>An iterator that repeats elements of type <code>A</code> endlessly by
+applying the provided closure <code>F: FnMut() -&gt; A</code>.</p>
+
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
                            <td><a class="struct" href="struct.StepBy.html"
                                   title='struct nom::lib::std::iter::StepBy'>StepBy</a></td>
                            <td class='docblock-short'>
@@ -509,6 +526,14 @@ element.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class="trait" href="trait.FusedIterator.html"
+                                  title='trait nom::lib::std::iter::FusedIterator'>FusedIterator</a></td>
+                           <td class='docblock-short'>
+                                <p>An iterator that always continues to yield <code>None</code> when exhausted.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="trait" href="trait.IntoIterator.html"
                                   title='trait nom::lib::std::iter::IntoIterator'>IntoIterator</a></td>
                            <td class='docblock-short'>
@@ -538,14 +563,6 @@ iterator.</p>
                                   title='trait nom::lib::std::iter::Sum'>Sum</a></td>
                            <td class='docblock-short'>
                                 <p>Trait to represent types that can be created by summing up an iterator.</p>
-
-                           </td>
-                       </tr>
-                       <tr class='unstable module-item'>
-                           <td><a class="trait" href="trait.FusedIterator.html"
-                                  title='trait nom::lib::std::iter::FusedIterator'>FusedIterator</a></td>
-                           <td class='docblock-short'>
-                               [<div class='stab unstable'>Experimental</div>] <p>An iterator that always continues to yield <code>None</code> when exhausted.</p>
 
                            </td>
                        </tr>
@@ -587,6 +604,15 @@ iterator.</p>
                                   title='fn nom::lib::std::iter::repeat'>repeat</a></td>
                            <td class='docblock-short'>
                                 <p>Creates a new iterator that endlessly repeats a single element.</p>
+
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="fn" href="fn.repeat_with.html"
+                                  title='fn nom::lib::std::iter::repeat_with'>repeat_with</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Creates a new iterator that repeats elements of type <code>A</code> endlessly by
+applying the provided closure, the repeater, <code>F: FnMut() -&gt; A</code>.</p>
 
                            </td>
                        </tr></table></section>

@@ -10,10 +10,11 @@
     <title>simple_errors.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -293,7 +294,7 @@
   <span class="doccomment">///</span>
   <span class="doccomment">/// This allows application code to use ErrorKind and stay independent from the verbose-errors features activation.</span>
   <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_error_kind</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">ErrorKind</span><span class="op">&lt;</span><span class="ident">E</span><span class="op">&gt;</span> {
-    <span class="kw">let</span> <span class="ident">Context</span>::<span class="ident">Code</span>(_, <span class="ident">e</span>) <span class="op">=</span> <span class="self">self</span>;
+    <span class="kw">let</span> <span class="ident">Context</span>::<span class="ident">Code</span>(<span class="kw">_</span>, <span class="ident">e</span>) <span class="op">=</span> <span class="self">self</span>;
     <span class="ident">ErrorKind</span>::<span class="ident">convert</span>(<span class="ident">e</span>)
   }
 }
@@ -453,7 +454,7 @@ impl&lt;E: fmt::Debug&gt; fmt::Display for Err&lt;E&gt; {
       (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)).<span class="ident">and_then</span>(<span class="op">|</span>(<span class="ident">i</span>,<span class="ident">o</span>)<span class="op">|</span> {
         <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span><span class="op">!</span>(<span class="ident">o</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>)<span class="kw-2">*</span>) {
           <span class="prelude-val">Err</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="prelude-val">Err</span>::<span class="ident">convert</span>(<span class="ident">e</span>)),
-          <span class="prelude-val">Ok</span>((_, <span class="ident">o2</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">i</span>, <span class="ident">o2</span>))
+          <span class="prelude-val">Ok</span>((<span class="kw">_</span>, <span class="ident">o2</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">i</span>, <span class="ident">o2</span>))
         }
       })
     }
