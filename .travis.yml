@@ -1,5 +1,6 @@
-sudo: false
+sudo: required
 language: rust
+cache: cargo
 addons:
   apt:
     packages:
@@ -7,24 +8,23 @@ addons:
     - libelf-dev
     - libdw-dev
     - binutils-dev
+    - cmake
+    sources:
+    - kalakris-cmake
 rust:
 - beta
 - stable
 before_script:
-- |
-  pip install 'travis-cargo<0.2' --user &&
-  export PATH=$HOME/.local/bin:$PATH
+- export PATH=$HOME/.cargo/bin:$PATH
+- cargo install cargo-update || echo "cargo-update already installed"
+- cargo install cargo-travis || echo "cargo-travis already installed"
+- cargo install-update -a
 script:
 - |
-  travis-cargo build &&
-  travis-cargo test &&
-  travis-cargo bench &&
-  travis-cargo --only stable doc
+  cargo build &&
+  cargo test &&
+  cargo bench &&
+  cargo doc
 after_success:
-- travis-cargo --only stable doc-upload
-- travis-cargo coveralls --no-sudo --verify
-env:
-  global:
-  - TRAVIS_CARGO_NIGHTY_FEATURE=nightly
-  - secure: "PEz7LMp+mHnpJXv5ft8TK8KdR4S47VKNWCNKkB0ODZpbSKrJFUHEUkjJrtq15eZe1yhSbGBXPQNJLI6LXvjVxeHxo2RrNTZM3qPZfgxSZ6+ab7ixTstbJMV2RgKNXOQULtApgRFcoNIf+d9aW7R/EwK0tI3teVcaOPEx0s9aA8tPqqnrmCs3A10qtvpE8QVsa/GTAkU2ntcPWk9RvrEBPZ5ASXteMegt7kaESbRisn5cdFHzv0QRwL4nWiaj05BT0B7MyqX3f4QKhj+EFs4zjxrd+E9f8yt/8jSslBdUZGuHOEJoNStk1rTc0DXqTbMOAlC3vbcjwJwWTfPOibzWikY8iOQrgTYAdK6VbmL720HrR9F1ipKXPA9mJbzKVg3TwWs958hbm/4ERRBDHoVaP7fR0EaAPXpT1yk/OA2B1shtr0+F3Gv7fI5+zQe3iGBQIFEmbVLPuu3IKpWHAK9aeWIoDa+3wUToC3sx4oFGfsw6rpplIZ8Tj4rYfu6qldUNILyq501BmBn1roJRpPJwrQ5+YdwIIwQGMJ7XQdIVLe3TLtTlnoocqkWO2EjOfwKiuAkwbXsjyz7xES60vBK2KM+TBixWKr2pU47ofAooHvb2zsdwCIpW8KpGsmR3Chw/6+fWx9nsN+XPIyOzKzf1cloyjmu6BQT38RymXTW3zGA="
-  - GH_TOKEN=$XPIyOzKzf1cloyjmu6BQT38RymXTW3zGA
+- cargo coveralls
+- cargo doc-upload
