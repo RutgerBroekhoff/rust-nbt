@@ -13,6 +13,18 @@ pub struct NBTFile {
 }
 
 impl NBTFile {
+    pub fn new(root_name: String, root: Option<NBTTag>) -> NBTFile {
+        let mut file: NBTFile;
+
+        file.root_name = root_name;
+
+        if let Some(root_val) = root {
+            file.root = root_val;
+        }
+
+        file
+    }
+
     pub fn from_path(path: &str) -> Result<NBTFile, String> {
         let path = Path::new(path);
         let display = path.display();
