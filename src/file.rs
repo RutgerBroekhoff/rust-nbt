@@ -25,6 +25,27 @@ impl NBTFile {
         file
     }
 
+    pub fn get_root(&self) -> &NBTTag {
+        return &self.root;
+    }
+
+    pub fn get_root_mut(&mut self) -> &mut NBTTag {
+        return &mut self.root;
+    }
+
+    pub fn set_root(&mut self, new_root: NBTTag) -> Result<(), String> {
+        if let NBTTag::TagCompound(_) = new_root {
+            self.root = new_root;
+            return Ok(())
+        }
+
+        Err("Type of root tag is required to be TagCompound".to_owned())
+    }
+
+    pub fn set_root_name(&mut self, new_root_name: String) {
+        self.root_name = new_root_name
+    }
+
     pub fn from_path(path: &str) -> Result<NBTFile, String> {
         let path = Path::new(path);
         let display = path.display();
